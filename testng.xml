@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite1">
+    <test name="Test MOCK RestAPI">
+        <classes>
+            <class name="tests.TestPostAndDeleteCompanies"></class>
+            <class name="tests.TestPostAndDeleteUsers"></class>
+            <class name="tests.TestGetCalls"></class>
+        </classes>
+    </test>
+</suite>

@@ -36,7 +36,7 @@ public class TestPostAndDeleteCompanies {
         Assert.assertTrue(id > 0);
     }
 
-    
+
     @Test(dependsOnGroups = "PostCompanies")
     public void testDeleteCompanies() throws IOException {
         url = url + "/" + id;
