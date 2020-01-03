@@ -9,6 +9,8 @@
             <class name="tests.TestPostAndDeleteCompanies"></class>
             <class name="tests.TestPostAndDeleteUsers"></class>
             <class name="tests.TestGetCalls"></class>
+            <class name="tests.TestPatchCompanies"></class>
+            <class name="tests.TestPatchUser"></class>
         </classes>
     </test>
 </suite>

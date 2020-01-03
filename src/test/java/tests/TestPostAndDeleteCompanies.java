@@ -29,7 +29,7 @@ public class TestPostAndDeleteCompanies {
 
     @Test(groups = "PostCompanies")
     public void testPostCompanies() throws IOException {
-        HttpResponse response = apiCalls.postRequest(url,jsonData);
+        HttpResponse response = apiCalls.postRequest(httpClient,url,jsonData);
         String responseString = apiCalls.getApiResponseInString(response);
         JsonObject jsonObject = apiCalls.getJsonObject(responseString);
         id = jsonObject.get("id").getAsInt();
@@ -40,7 +40,7 @@ public class TestPostAndDeleteCompanies {
     @Test(dependsOnGroups = "PostCompanies")
     public void testDeleteCompanies() throws IOException {
         url = url + "/" + id;
-        HttpResponse response = apiCalls.deleteRequest(url);
+        HttpResponse response = apiCalls.deleteRequest(httpClient,url);
         int statusCode = response.getStatusLine().getStatusCode();
         Assert.assertEquals(statusCode,200);
 

@@ -5,9 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.*;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -24,14 +22,12 @@ import java.io.UnsupportedEncodingException;
 public class ApiCalls {
 
     public HttpResponse getRequest(CloseableHttpClient httpClient, String url) throws IOException {
-        httpClient = HttpClients.createDefault();
         HttpGet getRequest =  new HttpGet(url);
         HttpResponse httpResponse = httpClient.execute(getRequest);
         return httpResponse;
     }
 
-    public HttpResponse postRequest(String url, String jsonData) throws IOException {
-        CloseableHttpClient httpClient = HttpClients.createDefault();
+    public HttpResponse postRequest(CloseableHttpClient httpClient,String url, String jsonData) throws IOException {
         HttpPost postRequest = new HttpPost(url);
         postRequest.addHeader("content-type","application/json");
 
@@ -43,12 +39,23 @@ public class ApiCalls {
         return response;
     }
 
-    public HttpResponse deleteRequest(String url) throws IOException {
-        CloseableHttpClient httpClient = HttpClients.createDefault();
+    public HttpResponse deleteRequest(CloseableHttpClient httpClient, String url) throws IOException {
         HttpDelete deleteRequest =  new HttpDelete(url);
         deleteRequest.addHeader("content-type","application/json");
         HttpResponse response = httpClient.execute(deleteRequest);
 
+        return response;
+    }
+
+    public HttpResponse patchRequest(CloseableHttpClient httpClient, String url, int id, String inputJson) throws IOException {
+        url = url + "/" + id;
+        HttpPatch httpPatch =  new HttpPatch(url);
+        httpPatch.addHeader("content-type", "application/json");
+
+        //set patch input json data
+        StringEntity entity = new StringEntity(inputJson);
+        httpPatch.setEntity(entity);
+        HttpResponse response = httpClient.execute(httpPatch);
         return response;
     }
 

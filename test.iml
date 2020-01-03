@@ -28,5 +28,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: ant:ant:1.6.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: velocity:velocity:1.4" level="project" />
     <orderEntry type="library" name="Maven: velocity:velocity-dep:1.4" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
   </component>
 </module>
