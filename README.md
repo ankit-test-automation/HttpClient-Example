@@ -14,7 +14,7 @@ To mock APIs, use any tool like mockoon etc. or mocked version done using json s
 
 https://github.com/ankitagrawalwardha/JsonServerTest
 
-###Software prerequistes
+### Software prerequistes
 * jdk 1.7 or higher
 * Maven latest version
 * Idea Intellij or Eclipse IDE
